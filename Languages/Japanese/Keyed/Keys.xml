@@ -8,6 +8,8 @@
   <M4_WeaponSingleUse>1回限り</M4_WeaponSingleUse>
   <!--EN: Burst length-->
   <M4_BurstShotDelay>発砲間隔</M4_BurstShotDelay>
+  <!--EN: Total time-->
+  <M4_TotalTime>合計時間</M4_TotalTime>
   <!--EN: Travel time-->
   <M4_ProjectileTravelTime>弾丸飛行時間</M4_ProjectileTravelTime>
   <!--EN: Explosion delay-->

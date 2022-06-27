@@ -22,11 +22,11 @@ namespace Mehni.Misc.Modifications
             int burstCount = GetBurstCount(verb);
             float burstShotDelay = GetBurstShotDelay(verb);
 
-            return GetDPS(damage, cooldown, warmup, accuracy, burstCount, burstShotDelay, 0, 0);
+            return GetDPS(damage, cooldown, warmup, accuracy, burstCount, burstShotDelay);
         }
 
         // Signature retains reference to projectile travel and explosion delay for backwards compatibility.
-        public static float GetDPS(float damage, float cooldown, float warmup, float accuracy, int burstCount, float burstShotDelay, float projectileTravelTime, float explosionDelay) =>
+        public static float GetDPS(float damage, float cooldown, float warmup, float accuracy, int burstCount, float burstShotDelay) =>
             (damage * burstCount * accuracy) / (cooldown + warmup + ((burstCount - 1) * burstShotDelay));
 
         public static string GetExplanation(Thing weapon, float dist, Pawn pawn = null)
@@ -67,9 +67,13 @@ namespace Mehni.Misc.Modifications
             if (bCMinOne > 0)
                 expBuilder.AppendLine($"{"M4_BurstShotDelay".Translate()}: {bCMinOne * burstShotDelay:F2} s ({bCMinOne} x {burstShotDelay:F2})");
 
+            // Total time
+            var totalTime = cooldown + warmup + (bCMinOne * burstShotDelay);
+            expBuilder.AppendLine($"{"M4_TotalTime".Translate()}: {totalTime:F2} s");
+
+            // DPS result
             expBuilder.AppendLine();
-            expBuilder.AppendLine($"DPS = ({burstCount * damage} x {accuracy.ToStringPercent()}) /" +
-                $" {cooldown + warmup + (bCMinOne * burstShotDelay):F2}");
+            expBuilder.AppendLine($"DPS = ({burstCount * damage} x {accuracy.ToStringPercent()}) / {totalTime:F2} s");
 
             // Projectile 
             expBuilder.AppendLine();

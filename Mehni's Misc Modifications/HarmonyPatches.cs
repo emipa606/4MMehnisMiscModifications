@@ -492,14 +492,14 @@ namespace Mehni.Misc.Modifications
 
         public static ThingDef GetStuffDefFromSettings(ThingDef def)
         {
-            if (def.MadeFromStuff && MeMiMoSettings.chooseItemStuff && MeMiMoSettings.stuffDefName != "" && DefDatabase<ThingDef>.GetNamed(MeMiMoSettings.stuffDefName) != null)
+            if (MeMiMoSettings.iAmAModder && def.MadeFromStuff && MeMiMoSettings.chooseItemStuff && MeMiMoSettings.stuffDefName != "" && DefDatabase<ThingDef>.GetNamed(MeMiMoSettings.stuffDefName) != null)
                 return DefDatabase<ThingDef>.GetNamed(MeMiMoSettings.stuffDefName);
             return GenStuff.RandomStuffFor(def);
         }
 
         public static QualityCategory GenerateQualityFromSettings()
         {
-            if (!MeMiMoSettings.forceItemQuality)
+            if (!MeMiMoSettings.iAmAModder || !MeMiMoSettings.forceItemQuality)
                 return QualityUtility.GenerateQualityRandomEqualChance();
 
             return MeMiMoSettings.forcedItemQuality switch

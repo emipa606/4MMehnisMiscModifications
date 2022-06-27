@@ -5,6 +5,7 @@
     <M4_DamagePerBurst>Damage per burst</M4_DamagePerBurst>
     <M4_WeaponSingleUse>Single-use</M4_WeaponSingleUse>
     <M4_BurstShotDelay>Burst length</M4_BurstShotDelay>
+    <M4_TotalTime>Total time</M4_TotalTime>
     <M4_ProjectileTravelTime>Travel time</M4_ProjectileTravelTime>
     <M4_ProjectileExplosionDelay>Explosion delay</M4_ProjectileExplosionDelay>
 

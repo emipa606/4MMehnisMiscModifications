@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Mehni Misc Modifications")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyProduct("Mehni Misc Modifications")]
-[assembly: AssemblyCopyright("(C) Mehni, XeoNovaDan, simplyWiri, Miyuri (ZXfkSIE)")]
+[assembly: AssemblyCopyright("(C) Mehni, XeoNovaDan, simplyWiri, Miyuri (ZXfkSIE), Kaedys")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
