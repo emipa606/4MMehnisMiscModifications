@@ -416,10 +416,10 @@ namespace Mehni.Misc.Modifications
             }
         }
 
-        public static void CanInteractWithAnimal_Postfix(Pawn pawn, ref bool __result)
+        public static void CanInteractWithAnimal_Postfix(Pawn animal, bool canInteractWhileSleeping, ref bool __result)
         {
-            int hourInteger = GenDate.HourInteger(Find.TickManager.TicksAbs, Find.WorldGrid.LongLatOf(pawn.MapHeld.Tile).x);
-            if (hourInteger >= MeMiMoSettings.animalInteractionHourLimit && __result)
+            int hourInteger = GenDate.HourInteger(Find.TickManager.TicksAbs, Find.WorldGrid.LongLatOf(animal.MapHeld.Tile).x);
+            if (!canInteractWhileSleeping && hourInteger >= MeMiMoSettings.animalInteractionHourLimit && __result)
             {
                 JobFailReason.Is("M4_CantInteractAnimalWillFallAsleepSoon".Translate());
                 __result = false;

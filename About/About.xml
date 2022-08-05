@@ -32,6 +32,8 @@ Check the description page on Steam Workshop for more details.
   1. Fix the bug that position of the tooltips was not following mouse cursor.
   2. Change the method of ranged DPS calculation.
   3. Modder functions are activated only when "I am modder" option is ticked.
+\n\nv1.3.3.0
+  1. Fix the problem that "roping animal to pen" is affected by "stop interacting with animals".
   </description>
   <loadAfter>
     <li>brrainz.harmony</li>
