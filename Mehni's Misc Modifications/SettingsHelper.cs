@@ -100,7 +100,7 @@ namespace Mehni.Misc.Modifications
 
         private static List<LabeledRadioValue<string>> GenerateLabeledRadioValues(string[] labels)
         {
-            List<LabeledRadioValue<string>> list = new List<LabeledRadioValue<string>>();
+            List<LabeledRadioValue<string>> list = new();
             foreach (string label in labels)
             {
                 list.Add(new LabeledRadioValue<string>(label, label));

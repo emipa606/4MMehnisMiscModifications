@@ -27,14 +27,14 @@ Pawns won't eat Nutrient Paste for some reason? Odds are there's a chunk blockin
 - [XND] Display DPS for all weapons.
 - Supress news of chicken #357 dying.
 - Confirmation before embarking if currently viewed colonist is not one you selected (AKA "I noticed you rolled fifty colonists on a naked brutality start but the one you just rolled isn't the one you're about the start the game with. Are you suuuuure?").
-- [XND] Better raider visibility. No more ninja mechanoids! All hostiles will have their label draw in red, whether they're a raider, mechanoid or hostile animal.
+- [XND] ~~Better raider visibility. No more ninja mechanoids! All hostiles will have their label draw in red, whether they're a raider, mechanoid or hostile animal.~~ (Removed in 1.4)
 - [XND] Chased refugees will give a full headcount of their raid.
 - Add item information buttons at item filter.
 
 ## Various (AI) tweaks and settings
 
 - Don't roll pacifists.
-- [XND] ~~Set a custom filth rate for humans.~~ (Removed in 1.3 version)
+- [XND] ~~Set a custom filth rate for humans.~~ (Removed in 1.3)
 - [XND] Don't interact with animals just before their naptime.
 - [XND] Animals marked for taming are less tasty to your guard-trained predators. ("Bad bear! I said *tame* the turtle, not eat it!")
 - Increase the size of Herd Migrations. Bring on the herd!
@@ -43,7 +43,7 @@ Pawns won't eat Nutrient Paste for some reason? Odds are there's a chunk blockin
 
 - Remove the 6 second cooldown for uploading a mod.
 - [XND] Devmode spawn tweaks. Pick the stuff and quality for the item you wish to spawn.
-- ~~Remove the 999 messages limit. Because sometimes you want to get spammed.~~ (Removed in 1.3 version)
+- ~~Remove the 999 messages limit. Because sometimes you want to get spammed.~~ (Removed in 1.3)
 
 All settings that influence gameplay are optional and can be configured or turned off. More options are planned, leave me a comment with your ideas. I prioritise by popular and easy-to-do ;-)
 

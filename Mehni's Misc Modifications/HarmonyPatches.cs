@@ -24,75 +24,115 @@ namespace Mehni.Misc.Modifications
             Harmony.DEBUG = true;
 #endif
             harmony.Patch(
-                original: AccessTools.Method(typeof(IncidentWorker_HerdMigration), "GenerateAnimals"),
+                original: AccessTools.Method(
+                    typeof(IncidentWorker_HerdMigration),
+                    "GenerateAnimals"
+                    ),
                 transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(BigHerds_Transpiler)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(AutoUndrafter), "ShouldAutoUndraft"),
+                original: AccessTools.Method(
+                    typeof(AutoUndrafter),
+                    "ShouldAutoUndraft"
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(StayWhereIPutYou_Postfix)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(Lord), "SetJob"),
+                original: AccessTools.Method(
+                    typeof(Lord),
+                    nameof(Lord.SetJob)
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(FleeTrigger_PostFix)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(ManhunterPackIncidentUtility), "ManhunterAnimalWeight"),
+                original: AccessTools.Method(
+                    typeof(ManhunterPackIncidentUtility),
+                    nameof(ManhunterPackIncidentUtility.ManhunterAnimalWeight)
+                    ),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(BigManhunterPackFix)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(PlantProperties), "SpecialDisplayStats"),
+                original: AccessTools.Method(
+                    typeof(PlantProperties),
+                    "SpecialDisplayStats"
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(DisplayYieldInfo)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(StartingPawnUtility), "NewGeneratedStartingPawn"),
+                original: AccessTools.Method(
+                    typeof(StartingPawnUtility),
+                    "NewGeneratedStartingPawn"
+                    ),
                 transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(NewGeneratedStartingPawns_Transpiler)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(Dialog_AssignBuildingOwner), "DoWindowContents"),
+                original: AccessTools.Method(
+                    typeof(Dialog_AssignBuildingOwner),
+                    nameof(Dialog_AssignBuildingOwner.DoWindowContents)
+                    ),
                 transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(DoWindowContents_Transpiler)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(Pawn_HealthTracker), "NotifyPlayerOfKilled"),
+                original: AccessTools.Method(
+                    typeof(Pawn_HealthTracker),
+                    nameof(Pawn_HealthTracker.NotifyPlayerOfKilled)
+                    ),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(NotifyPlayerOfKilledAnimal_Prefix)));
-            /*
-            harmony.Patch(AccessTools.Method(typeof(Building_Turret), "OnAttackedTarget"), null, null,
-                new HarmonyMethod(typeof(HarmonyPatches), nameof(OnAttackedTarget_Transpiler)));
-            */
+
+            //harmony.Patch(AccessTools.Method(typeof(Building_Turret), "OnAttackedTarget"), null, null,
+            //    new HarmonyMethod(typeof(HarmonyPatches), nameof(OnAttackedTarget_Transpiler)));
+
             harmony.Patch(
-                original: AccessTools.Method(typeof(FoodUtility), "GetPreyScoreFor"),
+                original: AccessTools.Method(
+                    typeof(FoodUtility),
+                    nameof(FoodUtility.GetPreyScoreFor)
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(GetPreyScoreFor_Postfix)));
 
             harmony.Patch(
                 original: AccessTools.Method(
-                    typeof(WorkGiver_InteractAnimal), "CanInteractWithAnimal",
+                    typeof(WorkGiver_InteractAnimal),
+                    nameof(WorkGiver_InteractAnimal.CanInteractWithAnimal),
                     new[] { typeof(Pawn), typeof(Pawn), typeof(string).MakeByRefType(), typeof(bool), typeof(bool), typeof(bool), typeof(bool) }
-                ),
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(CanInteractWithAnimal_Postfix)));
 
             harmony.Patch(
-                original: AccessTools.Property(typeof(Dialog_MessageBox), "InteractionDelayExpired").GetGetMethod(true),
+                original: AccessTools.PropertyGetter(
+                    typeof(Dialog_MessageBox),
+                    "InteractionDelayExpired"
+                    ),
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(YesImAModderStopAskingMe)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(DebugThingPlaceHelper), "DebugSpawn"),
+                original: AccessTools.Method(
+                    typeof(DebugThingPlaceHelper),
+                    nameof(DebugThingPlaceHelper.DebugSpawn)
+                    ),
                 transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(TranspileDebugSpawn)));
 
             //harmony.Patch(AccessTools.Method(typeof(RelationsUtility), nameof(RelationsUtility.IsDisfigured)), null,
             //    new HarmonyMethod(typeof(HarmonyPatches), nameof(IsDisfigured_Postfix)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(Page_ConfigureStartingPawns), "DoNext"),
+                original: AccessTools.Method(
+                    typeof(Page_ConfigureStartingPawns),
+                    "DoNext"
+                    ),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(ConfigureStartingPawnsDoNextPrefix)));
 
             //harmony.Patch(AccessTools.Method(typeof(IncidentWorker_RefugeeChased), "TryExecuteWorker"),
             //    transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(TryExecuteWorker_Transpiler)));
 
-            harmony.Patch(
-                original: AccessTools.Method(typeof(PawnUIOverlay), "DrawPawnGUIOverlay"),
-                postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(DrawPawnGUIOverlay_Postfix)));
+            //harmony.Patch(
+            //    original: AccessTools.Method(typeof(PawnUIOverlay), "DrawPawnGUIOverlay"),
+            //    postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(DrawPawnGUIOverlay_Postfix)));
 
             harmony.Patch(
-                original: AccessTools.Method(typeof(Listing_TreeThingFilter), "DoThingDef"),
+                original: AccessTools.Method(
+                    typeof(Listing_TreeThingFilter),
+                    "DoThingDef"
+                    ),
                 transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(DoThingDef_Transpiler)));
         }
 
@@ -131,7 +171,10 @@ namespace Mehni.Misc.Modifications
                 {
                     if (!MentalBreakHelper(___pawn))
                     {
-                        __result = (Find.TickManager.TicksGame - ___lastNonWaitingTick >= 6000 + MeMiMoSettings.extendUndraftTimeBy && GunsFiringHelper());
+                        // As of RW 1.4: private const int UndraftDelay = 10000;
+                        __result =
+                            (Find.TickManager.TicksGame - ___lastNonWaitingTick >= 10000 + MeMiMoSettings.extendUndraftTimeBy)
+                            && GunsFiringHelper();
                     }
                 }
             }
@@ -173,11 +216,20 @@ namespace Mehni.Misc.Modifications
 
         #region DynamicFleeing
 
-        private static void FleeTrigger_PostFix(ref LordJob lordJob)
+        private static void FleeTrigger_PostFix(Lord __instance, ref LordJob lordJob)
         {
-            float randomRetreatvalue = Rand.Range(MeMiMoSettings.retreatDefeatRange.min, MeMiMoSettings.retreatDefeatRange.max);
-            if (lordJob.lord.faction != null && lordJob.lord.faction.def.autoFlee && MeMiMoSettings.variableRaidRetreat)
+            if (MeMiMoSettings.variableRaidRetreat &&
+                __instance.faction != null &&
+                !__instance.faction.IsPlayer &&
+                __instance.faction.def.autoFlee &&
+                !__instance.faction.neverFlee &&
+                lordJob.AddFleeToil)
             {
+                float randomRetreatvalue = Rand.RangeSeeded(
+                    MeMiMoSettings.retreatDefeatRange.min,
+                    MeMiMoSettings.retreatDefeatRange.max,
+                    __instance.loadID);
+
                 for (int j = 0; j < lordJob.lord.Graph.transitions.Count; j++)
                 {
                     if (lordJob.lord.Graph.transitions[j].target is LordToil_PanicFlee)
@@ -186,8 +238,7 @@ namespace Mehni.Misc.Modifications
                         {
                             if (lordJob.lord.Graph.transitions[j].triggers[i] is Trigger_FractionPawnsLost)
                             {
-                                if (MeMiMoSettings.variableRaidRetreat)
-                                    lordJob.lord.Graph.transitions[j].triggers[i] = new Trigger_FractionPawnsLost(randomRetreatvalue);
+                                lordJob.lord.Graph.transitions[j].triggers[i] = new Trigger_FractionPawnsLost(randomRetreatvalue);
                             }
                         }
                     }
@@ -214,6 +265,9 @@ namespace Mehni.Misc.Modifications
         //Thanks to XeoNovaDan
         public static void DisplayYieldInfo(PlantProperties __instance, ref IEnumerable<StatDrawEntry> __result)
         {
+            if (__instance.isStump)
+                return;
+
             ThingDef harvestedThingDef = Traverse.Create(__instance).Field("harvestedThingDef").GetValue<ThingDef>();
             float harvestYield = Traverse.Create(__instance).Field("harvestYield").GetValue<float>();
 
@@ -246,21 +300,51 @@ namespace Mehni.Misc.Modifications
         #endregion DisplayYieldInfo
 
         #region TutorialStyleRolling (No non-violents)
-        public static IEnumerable<CodeInstruction> NewGeneratedStartingPawns_Transpiler(IEnumerable<CodeInstruction> codeInstructions)
+        public static IEnumerable<CodeInstruction>
+            NewGeneratedStartingPawns_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
         {
-            MethodInfo tutorialMode = AccessTools.Property(typeof(TutorSystem), nameof(TutorSystem.TutorialMode)).GetGetMethod();
-            MethodInfo noNonViolents = AccessTools.Property(typeof(HarmonyPatches), nameof(NoNonViolents)).GetGetMethod();
+            List<CodeInstruction> Li_inst = new(instructions);
+            int idx_insert = -1;
+            Label label_pawn_eq_null = il.DefineLabel();
+            for (int i = 0; i < Li_inst.Count - 1; i++)
+                if (Li_inst[i].opcode == OpCodes.Ldnull && Li_inst[i + 1].opcode == OpCodes.Stloc_1)
+                {
+                    idx_insert = i;
+                    Li_inst[i].labels.Add(label_pawn_eq_null);
+                    break;
+                }
+            if (idx_insert == -1)
+                return instructions;
 
-            List<CodeInstruction> instructionList = codeInstructions.ToList();
-            foreach (CodeInstruction t in instructionList)
-            {
-                if (t.Calls(tutorialMode))
-                    t.operand = noNonViolents;
-                yield return t;
-            }
+            List<CodeInstruction> Li_instInsert = new();
+
+            // if(NoNonviolent)
+            Li_instInsert.Add(new CodeInstruction(
+                OpCodes.Call,
+                AccessTools.PropertyGetter(typeof(HarmonyPatches), nameof(NoNonviolent))
+                ));
+            Li_instInsert.Add(new CodeInstruction(
+                OpCodes.Brfalse_S,
+                label_pawn_eq_null
+                ));
+            // request.MustBeCapableOfViolence = true;
+            Li_instInsert.Add(new CodeInstruction(
+                OpCodes.Ldloca_S,
+                0
+                ));                                                     // &request
+            Li_instInsert.Add(new CodeInstruction(
+                OpCodes.Ldc_I4_1
+                ));
+            Li_instInsert.Add(new CodeInstruction(
+                OpCodes.Call,
+                AccessTools.PropertySetter(typeof(PawnGenerationRequest), nameof(PawnGenerationRequest.MustBeCapableOfViolence))
+                ));
+
+            Li_inst.InsertRange(idx_insert, Li_instInsert);
+            return Li_inst;
         }
 
-        public static bool NoNonViolents => TutorSystem.TutorialMode || MeMiMoSettings.enableTutorialStyleRolling;
+        public static bool NoNonviolent => TutorSystem.TutorialMode || MeMiMoSettings.enableTutorialStyleRolling;
 
         static bool returnvalue = false;
 
@@ -268,14 +352,15 @@ namespace Mehni.Misc.Modifications
         {
             MethodInfo runMe = AccessTools.Method(typeof(Page_ConfigureStartingPawns), "DoNext");
 
-            List<Pawn> tmpList = new List<Pawn>(Find.GameInitData.startingPawnCount);
+            List<Pawn> tmpList = new(Find.GameInitData.startingPawnCount);
             tmpList.AddRange(Find.GameInitData.startingAndOptionalPawns.Take(Find.GameInitData.startingPawnCount));
             if (!tmpList.Contains(___curPawn))
             {
                 Find.WindowStack.Add(
                     Dialog_MessageBox.CreateConfirmation(
                         text: "M4_HaveNotDraggedColonist".Translate(___curPawn.LabelCap),
-                        confirmedAct: () => {
+                        confirmedAct: () =>
+                        {
                             returnvalue = true;
                             runMe.Invoke(__instance, new object[] { });
                         }
@@ -291,64 +376,151 @@ namespace Mehni.Misc.Modifications
 
         #region showLovers
 
-        public static IEnumerable<CodeInstruction> DoWindowContents_Transpiler(IEnumerable<CodeInstruction> codeInstructions, ILGenerator gen)
+        public static IEnumerable<CodeInstruction>
+            DoWindowContents_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
         {
-            var label = gen.DefineLabel();
-            MethodInfo widgetsLabel = AccessTools.Method(typeof(Widgets), nameof(Widgets.Label), new Type[] { typeof(Rect), typeof(string) });
-            MethodInfo getPawnName = AccessTools.Property(typeof(Entity), nameof(Entity.LabelCap)).GetGetMethod();
-            MethodInfo endScrollView = AccessTools.Method(typeof(Widgets), nameof(Widgets.EndScrollView));
+            var label = il.DefineLabel();
+            MethodInfo widgetsLabel = AccessTools.Method(
+                typeof(Widgets),
+                nameof(Widgets.Label),
+                new Type[] { typeof(Rect), typeof(string) }
+                );
+            MethodInfo thingIcon = AccessTools.Method(
+                typeof(Widgets),
+                nameof(Widgets.ThingIcon),
+                new Type[] { typeof(Rect), typeof(Thing), typeof(float), typeof(Rot4?), typeof(bool) }
+                );
+            CodeInstruction ldc_r4_35f = new(OpCodes.Ldc_R4, 35f);
 
-            List<CodeInstruction> instructionList = codeInstructions.ToList();
+            List<CodeInstruction> Li_inst = instructions.ToList();
 
-            for (int i = 0; i < instructionList.Count; i++)
+            bool f_rectAggregator = true;
+            bool f_NewCol_AssignedPawnsForReading = true, f_Heart_AssignedPawnsForReading = true;
+            bool f_NewCol_AssigningCandidates = true, f_Heart_AssigningCandidates = true;
+            int Start_NewCol_AssignedPawnsForReading = -1;
+            int Start_NewCol_AssigningCandidates = 1;
+
+            // We want to inject the heart painting codes at 2 locations:
+            // 1. foreach assignable.AssignedPawnsForReading
+            // 2. foreach assignable.AssigningCandidates
+            for (int i = 0; i < Li_inst.Count; i++)
             {
-                // We want to inject the same code in two spots.
-                
-                // insert after `void Widgets.DrawLabel` - stack is neutral, so we can branch away
-                if (i > 1 && instructionList[i - 1].Calls(getPawnName) && instructionList[i].Calls(widgetsLabel)) // last inst won't be a call to getPawnName
+                // After "rectAggregator.NewCol(24f);",
+                // insert another "rectAggregator.NewCol(35f);"
+                if (f_rectAggregator && i >= 4 && i < Li_inst.Count - 3
+                    && Li_inst[i].opcode == OpCodes.Pop
+                    && Li_inst[i - 2].opcode == OpCodes.Ldc_I4_1
+                    && Li_inst[i + 3].opcode == OpCodes.Ldc_I4_1
+                    )
                 {
-                        yield return instructionList[i];
-                        foreach (var inst in InsertDrawHeart(label, new List<CodeInstruction> { instructionList[i - 2] }))
-                            yield return inst;
-                } 
-                // insert after `bool accepted = acceptanceReport.Accepted`, stack is neutral here.
-                else if (i < instructionList.Count - 4 && instructionList[i + 3].Calls(getPawnName) && !instructionList[i + 4].Calls(widgetsLabel))
-                {
-                    yield return instructionList[i];
-                    
-                    foreach (var inst in InsertDrawHeart(label, new List<CodeInstruction> { instructionList[i + 1], instructionList[i + 2] }))
+                    yield return Li_inst[i];
+                    Li_inst[i - 3] = ldc_r4_35f;
+                    foreach (var inst in Li_inst.GetRange(i - 4, 5))
                         yield return inst;
+
+                    f_rectAggregator = false;
                 }
+
+                // Record the range of instructions that call the parameters
+                // "rectDivider2.NewCol(24f), item4"
+
+                else if (f_NewCol_AssignedPawnsForReading && i >= 5 && i < Li_inst.Count - 6
+                    && Li_inst[i].opcode == OpCodes.Ldloc_S
+                    && Li_inst[i + 6].Calls(thingIcon)
+                    )
+                {
+                    yield return Li_inst[i];
+                    Start_NewCol_AssignedPawnsForReading = i - 5;
+
+                    f_NewCol_AssignedPawnsForReading = false;
+                }
+
+                // Record the range of instructions that call the parameters
+                // "rectDivider2.NewCol(24f), pawn"
+                else if (f_NewCol_AssigningCandidates && i >= 5 && i < Li_inst.Count - 7
+                    && Li_inst[i].opcode == OpCodes.Ldloc_S
+                    && Li_inst[i + 7].Calls(thingIcon)
+                    )
+                {
+                    yield return Li_inst[i];
+                    Start_NewCol_AssigningCandidates = i - 5;
+
+                    f_NewCol_AssigningCandidates = false;
+                }
+
+                // insert instructions that call the parameters
+                // before "Widgets.Label(rectDivider2, tmpPawnName[item4]);"
+                else if (f_Heart_AssignedPawnsForReading && i < Li_inst.Count - 6
+                    && Li_inst[i + 3].opcode == OpCodes.Ldsfld
+                    && Li_inst[i + 6].Calls(widgetsLabel)
+                    )
+                {
+                    yield return Li_inst[i];
+                    Li_inst[Start_NewCol_AssignedPawnsForReading + 1] = ldc_r4_35f;
+                    foreach (var inst in
+                        InsertDrawHeart(
+                            label,
+                            Li_inst.GetRange(Start_NewCol_AssignedPawnsForReading, 6)
+                            )
+                        )
+                        yield return inst;
+
+                    f_Heart_AssignedPawnsForReading = false;
+                }
+
+                // insert instructions that call parameters
+                // before "Widgets.Label(rectDivider3, tmpPawnName[pawn]);"
+                else if (f_Heart_AssigningCandidates && i < Li_inst.Count - 7
+                    && Li_inst[i + 3].opcode == OpCodes.Ldsfld
+                    && Li_inst[i + 7].Calls(widgetsLabel)
+                    )
+                {
+                    yield return Li_inst[i];
+                    Li_inst[Start_NewCol_AssigningCandidates + 1] = ldc_r4_35f;
+                    foreach (var inst in
+                        InsertDrawHeart(
+                            label,
+                            Li_inst.GetRange(Start_NewCol_AssigningCandidates, 7)
+                            )
+                        )
+                        yield return inst;
+
+                    f_Heart_AssigningCandidates = false;
+                }
+
                 else
                 {
-                    if (instructionList[i].Calls(endScrollView))
-                        yield return instructionList[i].WithLabels(label);
-                    else 
-                        yield return instructionList[i];
+                    if (Li_inst[i].Calls(
+                        AccessTools.Method(typeof(Widgets), nameof(Widgets.EndScrollView))
+                        ))
+                        yield return Li_inst[i].WithLabels(label);
+                    else
+                        yield return Li_inst[i];
                 }
             }
         }
 
-        private static MethodInfo makeReeect = AccessTools.Method(typeof(HarmonyPatches), nameof(HarmonyPatches.ShowHeart));
-        private static MethodInfo getViewRectWidth = AccessTools.Property(typeof(Rect), nameof(Rect.width)).GetGetMethod();
-        
-        private static IEnumerable<CodeInstruction> InsertDrawHeart(Label label, List<CodeInstruction> getPawn)
+        private static IEnumerable<CodeInstruction>
+            InsertDrawHeart(Label label, List<CodeInstruction> inst_loadParams)
         {
-            yield return new CodeInstruction(OpCodes.Ldloca_S, 1);
-            yield return new CodeInstruction(OpCodes.Call, getViewRectWidth);
-            yield return new CodeInstruction(OpCodes.Ldc_R4, offsetPosition);
-            yield return new CodeInstruction(OpCodes.Mul); //viewrect.width * 0.55
-            yield return new CodeInstruction(OpCodes.Ldloc_2); //y
-            foreach (var inst in getPawn)
+            // if(ShowHeart(rectDivider2.NewCol(24f), pawn))
+            //     return;
+            foreach (var inst in inst_loadParams)
                 yield return inst;
-            yield return new CodeInstruction(OpCodes.Call, makeReeect);
-            yield return new CodeInstruction(OpCodes.Brtrue, label); // leave.s   
+            yield return new CodeInstruction(
+                OpCodes.Call,
+                AccessTools.Method(typeof(HarmonyPatches), nameof(HarmonyPatches.ShowHeart))
+                );
+            yield return new CodeInstruction(
+                OpCodes.Brtrue,
+                label
+                );
         }
 
         private static readonly Texture2D BondIcon = ContentFinder<Texture2D>.Get("UI/Icons/Animal/Bond");
         private static readonly Texture2D BondBrokenIcon = ContentFinder<Texture2D>.Get("UI/Icons/Animal/BondBroken");
 
-        private static bool ShowHeart(float x, float y, Pawn pawn)
+        private static bool ShowHeart(Rect rect, Pawn pawn)
         {
             Texture2D iconFor;
             if (pawn == null || !pawn.IsColonist)
@@ -370,24 +542,25 @@ namespace Mehni.Misc.Modifications
             if (iconFor != null)
             {
                 Vector2 iconSize = new Vector2(iconFor.width, iconFor.height) * resizeHeart;
-                Rect drawRect = new Rect(x, y, iconSize.x, iconSize.y);
-                TooltipHandler.TipRegion(drawRect, directPawnRelation.otherPawn.LabelCap);
+                TooltipHandler.TipRegion(rect, directPawnRelation.otherPawn.LabelCap);
 
-                if (iconFor == BondBrokenIcon) // if its a broken heart - allow them to click on the broken heart to assign the missing partner to the bed
+                // if its a broken heart - allow them to click on the broken heart to assign the missing partner to the bed
+                if (iconFor == BondBrokenIcon)
                 {
-                    if(Widgets.ButtonImage(drawRect, iconFor, Color.white, Color.red, true))
+                    if (Widgets.ButtonImage(rect, iconFor, Color.white, Color.red, true))
                     {
                         if (pawn.ownership?.OwnedBed?.SleepingSlotsCount >= 2)
                         {
                             pawn.ownership.OwnedBed.GetComp<CompAssignableToPawn>().TryAssignPawn(directPawnRelation.otherPawn);
+                            Text.Anchor = TextAnchor.UpperLeft;         // A warning will popup without this line
                             return true;
                         }
                         Messages.Message("M4_LoverWarning".Translate(pawn.LabelCap), MessageTypeDefOf.NeutralEvent, false);
-                    } 
+                    }
                 }
                 else
                 {
-                    GUI.DrawTexture(drawRect, iconFor);
+                    GUI.DrawTexture(rect, iconFor);
                 }
 
             }
@@ -408,9 +581,10 @@ namespace Mehni.Misc.Modifications
         // 'Totally didn't almost forget to actually copypaste the testing code' edition
         public static void GetPreyScoreFor_Postfix(Pawn predator, Pawn prey, ref float __result)
         {
-            if (predator.Faction == Faction.OfPlayer && MeMiMoSettings.guardingPredatorsDeferHuntingTameDesignatedAnimals
-                                                     && predator.training.HasLearned(TrainableDefOf.Obedience)
-                                                     && prey.Map.designationManager.DesignationOn(prey, DesignationDefOf.Tame) != null)
+            if (predator.Faction == Faction.OfPlayer
+                && MeMiMoSettings.guardingPredatorsDeferHuntingTameDesignatedAnimals
+                && predator.training.HasLearned(TrainableDefOf.Obedience)
+                && prey.Map.designationManager.DesignationOn(prey, DesignationDefOf.Tame) != null)
             {
                 __result -= 35f;
             }
@@ -471,6 +645,7 @@ namespace Mehni.Misc.Modifications
 
             MethodInfo randomStuffFor = AccessTools.Method(typeof(GenStuff), nameof(GenStuff.RandomStuffFor));
             MethodInfo getStuffDefFromSettings = AccessTools.Method(typeof(HarmonyPatches), nameof(GetStuffDefFromSettings));
+
             MethodInfo generateQualityRandomEqualChance = AccessTools.Method(typeof(QualityUtility), nameof(QualityUtility.GenerateQualityRandomEqualChance));
             MethodInfo generateQualityFromSettings = AccessTools.Method(typeof(HarmonyPatches), nameof(GenerateQualityFromSettings));
 
@@ -519,6 +694,7 @@ namespace Mehni.Misc.Modifications
 
         #region BetterHostileReadouts
         // Thanks Mehni... :sadwinnie:
+        /*
         public static IEnumerable<CodeInstruction> TryExecuteWorker_Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             List<CodeInstruction> instructionList = instructions.ToList();
@@ -540,7 +716,7 @@ namespace Mehni.Misc.Modifications
                 yield return instruction;
             }
         }
-
+        
         private static string AlteredHostileFactionPawnReadout(FactionDef faction, IEnumerable<PawnKindDef> pawnKinds)
         {
             // Warning: nested ternaries ahead
@@ -554,6 +730,7 @@ namespace Mehni.Misc.Modifications
             if (MeMiMoSettings.betterHostileReadouts && !___pawn.RaceProps.Humanlike && ___pawn.Faction != Faction.OfPlayer && ___pawn.HostileTo(Faction.OfPlayer))
                 GenMapUI.DrawPawnLabel(___pawn, GenMapUI.LabelDrawPosFor(___pawn, -0.6f), font: GameFont.Tiny);
         }
+        */
         #endregion
 
         #region IngredientFilterInfoCards

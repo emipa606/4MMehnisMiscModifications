@@ -57,7 +57,7 @@ namespace Mehni.Misc.Modifications
         #endregion ToolsForModders
 
         #region BetterHostileReadouts
-        public static bool betterHostileReadouts = true;
+        // public static bool betterHostileReadouts = true;
         #endregion
 
         #region DisplayRangedWeaponDPS
@@ -77,7 +77,7 @@ namespace Mehni.Misc.Modifications
 
         // Value to modify when adding new settings, pushing the scrollview down.
         //[TweakValue("AAAMehniMiscMods", max: 500f)]
-        private static readonly float moreOptionsRecty = 250f;
+        private static readonly float moreOptionsRecty = 210f;
 
         //[TweakValue("AAAMehniMiscMods")]
         private static readonly float widthFiddler = 9f;
@@ -122,8 +122,11 @@ namespace Mehni.Misc.Modifications
             options.CheckboxLabeled("M4_TimetableAssignmentMatters".Translate(), ref workAssignmentMatters, "M4_TimetableAssignmentMatters_Desc".Translate());
             options.GapLine();
 
-            options.CheckboxLabeled("M4_BetterHostileReadouts".Translate(), ref betterHostileReadouts, "M4_BetterHostileReadouts_Desc".Translate());
+            options.CheckboxLabeled("M4_DisplayRangedDPS".Translate(), ref displayRangedDPS, "M4_DisplayRangedDPS_Desc".Translate());
             options.GapLine();
+
+            //options.CheckboxLabeled("M4_BetterHostileReadouts".Translate(), ref betterHostileReadouts, "M4_BetterHostileReadouts_Desc".Translate());
+            //options.GapLine();
 
             options.SliderLabeled(
                 label: "M4_AnimalInteractionHourLimit".Translate(),
@@ -131,7 +134,7 @@ namespace Mehni.Misc.Modifications
                 format: animalInteractionHourLimit + "h",
                 min: 0f, max: 24f,
                 tooltip: "M4_AnimalInteractionHourLimit_Desc".Translate()
-                );    
+                );
 
             // Right column
 
@@ -148,9 +151,6 @@ namespace Mehni.Misc.Modifications
             options.GapLine();
 
             options.CheckboxLabeled("M4_ThingFilterInfoCards".Translate(), ref thingFilterInfoCards, "M4_ThingFilterInfoCards_Desc".Translate());
-            options.GapLine();
-
-            options.CheckboxLabeled("M4_DisplayRangedDPS".Translate(), ref displayRangedDPS, "M4_DisplayRangedDPS_Desc".Translate());
 
             options.Gap();
             options.End();
@@ -258,7 +258,7 @@ namespace Mehni.Misc.Modifications
             Scribe_Values.Look(ref animalInteractionHourLimit, "animalInteractionHourLimit", 20);
             Scribe_Values.Look(ref workAssignmentMatters, "workAssignmentMatters", false);
             Scribe_Values.Look(ref iAmAModder, "iAmAModder", false);
-            Scribe_Values.Look(ref betterHostileReadouts, "betterHostileReadouts", true);
+            // Scribe_Values.Look(ref betterHostileReadouts, "betterHostileReadouts", true);
             Scribe_Values.Look(ref displayRangedDPS, "displayRangedDPS", true);
             Scribe_Values.Look(ref thingFilterInfoCards, "thingFilterInfoCards", true);
         }
