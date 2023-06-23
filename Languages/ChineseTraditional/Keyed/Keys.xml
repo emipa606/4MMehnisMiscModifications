@@ -103,9 +103,9 @@
   <M4_BetterHostileReadouts_Desc>「被追捕的逃生者」資訊窗中會顯示完整的追捕者人數，並且非人類的敵對單位下方都會有一個標籤，讓你更容易找到他們——不會再有神出鬼沒的機械族了！</M4_BetterHostileReadouts_Desc>
 
   <!--EN: Display ranged DPS-->
-  <M4_DisplayRangedDPS>顯示遠端DPS</M4_DisplayRangedDPS>
+  <M4_DisplayRangedDPS>顯示遠射DPS</M4_DisplayRangedDPS>
   <!--EN: Ranged weapons and pawns will show their ranged DPS at close, short, medium and long distances. Advisable to disable if running Combat Extended.-->
-  <M4_DisplayRangedDPS_Desc>具備遠端攻擊能力的武器和小人在其面板會分別顯示貼身、近、中、遠的DPS資料。若你使用戰鬥拓展(Combat Extended)則最好關閉該選項。</M4_DisplayRangedDPS_Desc>
+  <M4_DisplayRangedDPS_Desc>具備遠射攻擊能力的武器和小人在其面板會分別顯示貼身、近、中、遠的DPS資料。若你使用戰鬥拓展(Combat Extended)則最好關閉該選項。</M4_DisplayRangedDPS_Desc>
 
   <!--EN: Add info button to filters-->
   <M4_ThingFilterInfoCards>在物品篩選介面新增資訊檢視按鈕</M4_ThingFilterInfoCards>

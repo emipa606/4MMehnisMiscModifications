@@ -23,9 +23,9 @@ namespace Mehni.Misc.Modifications
         }
 
         public override bool ShouldShowFor(StatRequest req)
-            => MeMiMoSettings.displayRangedDPS
-                && req.Def is ThingDef def && def.IsRangedWeapon && def.Verbs?[0]?.defaultProjectile != null
-                && def.Verbs[0].defaultProjectile.projectile.damageDef.harmsHealth;
+            => MeMiMoSettings.displayRangedDPS &&
+            req.Def is ThingDef def && def.IsRangedWeapon && def.Verbs?[0]?.defaultProjectile != null &&
+            def.Verbs[0].defaultProjectile.projectile.damageDef.harmsHealth;
 
         public override string GetStatDrawEntryLabel(StatDef stat, float value, ToStringNumberSense numberSense, StatRequest optionalReq, bool finalized)
             => value.ToStringByStyle(stat.toStringStyle, numberSense);

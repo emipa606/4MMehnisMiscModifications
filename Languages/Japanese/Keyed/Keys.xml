@@ -24,7 +24,7 @@
   <M4_GreySettingsIgnored>灰色となった設定は無視されます</M4_GreySettingsIgnored>
 
   <!--EN: Bring back big herd migrations-->
-  <M4_SettingBigAnimalMigrations>大型動物の大群の移動を取り戻す</M4_SettingBigAnimalMigrations>
+  <M4_SettingBigAnimalMigrations>動物の大群移動を取り戻す</M4_SettingBigAnimalMigrations>
   <!--EN: With this setting enabled, expect herd migrations to contain between 30 and 50 animals, regardless of bodysize.-->
   <M4_SettingBigAnimalMigrations_Desc>本設定を有効化すると、30から50頭の動物（大きさ不問）が大群となり移動することを期待できます。</M4_SettingBigAnimalMigrations_Desc>
 

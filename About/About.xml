@@ -37,6 +37,9 @@
   </modDependenciesByVersion>
 	<description>Adds various settings to customise your RimWorld experience.
 Check the description page on Steam Workshop for more details.
+\n\nversion 1.4.1.0
+1. DPS now will not display for non-projectile ranged weapons.
+2. Minor translation adjustments.
 \n\nversion 1.4.0.0
 1. Upgraded for RimWorld 1.4.
 2. Remove "better raider visibility" function since there is a better mod, "Atomic Patches - Hostile Labels".

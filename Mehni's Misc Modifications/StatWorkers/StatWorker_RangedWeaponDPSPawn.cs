@@ -23,7 +23,11 @@ namespace Mehni.Misc.Modifications
         }
 
         public override bool ShouldShowFor(StatRequest req) =>
-            (req.Thing as Pawn) != null && MeMiMoSettings.displayRangedDPS;
+            MeMiMoSettings.displayRangedDPS &&
+            req.Thing is Pawn pawn &&
+            pawn.equipment?.Primary != null &&
+            pawn.equipment.Primary.def.IsRangedWeapon &&
+            pawn.equipment.Primary.def.Verbs[0].defaultProjectile?.projectile != null;
 
         public override bool IsDisabledFor(Thing thing) =>
             base.IsDisabledFor(thing) || StatDefOf.ShootingAccuracyPawn.Worker.IsDisabledFor(thing);
@@ -37,11 +41,7 @@ namespace Mehni.Misc.Modifications
         public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
         {
             Pawn pawn = req.Thing as Pawn;
-
-            Thing weapon = pawn?.equipment?.Primary;
-            if (weapon == null || !weapon.def.IsRangedWeapon)
-                return "M4_NoRangedWeapon".Translate();
-
+            Thing weapon = pawn.equipment.Primary;
             return RangedWeaponDPSUtility.GetExplanation(weapon, Dist, pawn);
         }
 
