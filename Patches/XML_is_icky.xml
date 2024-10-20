@@ -1,35 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-
-    <!-- work assignment matters -->
-
-    <Operation Class="PatchOperationAdd">
-        <xpath>Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
-        <value>
-            <li Class="Mehni.Misc.Modifications.StatPart_TimeTable"/>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationAddModExtension">
-        <xpath>Defs/TimeAssignmentDef[defName="Joy" or defName="Sleep"]</xpath>
-        <value>
-            <li Class="Mehni.Misc.Modifications.TimeAssignmentExtension">
-                <globalWorkSpeedFactor>0.8</globalWorkSpeedFactor>
-            </li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationAddModExtension">
-        <xpath>Defs/TimeAssignmentDef[defName="Work"]</xpath>
-        <value>
-            <li Class="Mehni.Misc.Modifications.TimeAssignmentExtension">
-                <globalWorkSpeedFactor>1.2</globalWorkSpeedFactor>
-            </li>
-        </value>
-    </Operation>
-
-    <!-- dont destroy superweapons plzkthxbye -->
-<!-- 
+  <!-- work assignment matters -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+    <value>
+      <li Class="Mehni.Misc.Modifications.StatPart_TimeTable" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/TimeAssignmentDef[defName="Joy" or defName="Sleep"]</xpath>
+    <value>
+      <li Class="Mehni.Misc.Modifications.TimeAssignmentExtension">
+        <globalWorkSpeedFactor>0.8</globalWorkSpeedFactor>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/TimeAssignmentDef[defName="Work"]</xpath>
+    <value>
+      <li Class="Mehni.Misc.Modifications.TimeAssignmentExtension">
+        <globalWorkSpeedFactor>1.2</globalWorkSpeedFactor>
+      </li>
+    </value>
+  </Operation>
+  <!-- dont destroy superweapons plzkthxbye -->
+  <!-- 
     <Operation Class="PatchOperationInsert">
         <xpath>/Defs/RecipeDef[defName="DestroyWeapon" or defName="SmeltWeapon"]/fixedIngredientFilter</xpath>
         <value>
@@ -47,5 +42,4 @@
             </defaultIngredientFilter>
         </value>
     </Operation> -->
-
 </Patch>

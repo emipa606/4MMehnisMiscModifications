@@ -1,75 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-
-    <!-- Stats -->
-    <M4_DamagePerBurst>Damage per burst</M4_DamagePerBurst>
-    <M4_WeaponSingleUse>Single-use</M4_WeaponSingleUse>
-    <M4_BurstShotDelay>Burst length</M4_BurstShotDelay>
-    <M4_TotalTime>Total time</M4_TotalTime>
-    <M4_ProjectileTravelTime>Travel time</M4_ProjectileTravelTime>
-    <M4_ProjectileExplosionDelay>Explosion delay</M4_ProjectileExplosionDelay>
-
-    <!-- StatParts -->
-    <M4_StatPart_TimeTable_ExplanationString>Timetabled for {0}</M4_StatPart_TimeTable_ExplanationString>
-
-    <!-- Settings -->
-    <M4_GreySettingsIgnored>Greyed out settings are ignored</M4_GreySettingsIgnored>
-
-    <M4_SettingBigAnimalMigrations>Bring back big herd migrations</M4_SettingBigAnimalMigrations>
-    <M4_SettingBigAnimalMigrations_Desc>With this setting enabled, expect herd migrations to contain between 30 and 50 animals, regardless of bodysize.</M4_SettingBigAnimalMigrations_Desc>
-
-    <M4_SettingModifyAutoUndrafter>Modify the Auto Undrafter</M4_SettingModifyAutoUndrafter>
-    <M4_SettingModifyAutoUndrafter_Desc>Various options for lengthening the time it takes for a colonist to undraft themselves.</M4_SettingModifyAutoUndrafter_Desc>
-    <M4_SettingWithGunsBlazing>Stay drafted when there's gunfire on the map.</M4_SettingWithGunsBlazing>
-    <M4_SettingGunsBlazing_Desc>Pawns stay drafted as long as someone is firing a gun on the map.</M4_SettingGunsBlazing_Desc>
-    <M4_SettingExtendUndraftTimeBy>Extend the time to undraft by:</M4_SettingExtendUndraftTimeBy>
-    <M4_SettingExtendUndraftTimeBy_Desc>The vanilla value is 5000 ticks, a little under a RimWorld hour. This setting *adds* to the 5000 ticks. Note that colonists actively engaged in combat will not undraft themselves (under normal circumstances).</M4_SettingExtendUndraftTimeBy_Desc>
-    <M4_SettingLowMoodUndraft>... but undraft when at:</M4_SettingLowMoodUndraft>
-    <M4_SettingLowMoodUndraft_Desc>Allow the regular AutoUndrafter to kick in when colonists are at low mood.</M4_SettingLowMoodUndraft_Desc>
-
-    <M4_SettingEnableLargePacks>Allow large manhunter packs?</M4_SettingEnableLargePacks>
-    <M4_SettingLargePack_Desc>By default, RimWorld stops sending manhunter packs at high raid points. This changes that.</M4_SettingLargePack_Desc>
-
-    <M4_SettingVariableRaidRetreat>Change the threshold at which raids flee</M4_SettingVariableRaidRetreat>
-    <M4_SettingVariableRaid_Desc>By default, raiders give up at 50% losses. This allows you to change it. Does not apply to mechanoids and other factions which don't flee.</M4_SettingVariableRaid_Desc>
-    <M4_SettingRandomRaidRetreat>Flee at random value?</M4_SettingRandomRaidRetreat>
-    <M4_SettingRandomRaidRetreat_Desc>Raiders will flee somewhere between {0} and {1} losses.</M4_SettingRandomRaidRetreat_Desc>
-    <M4_SettingRetreatAtPercentageDefeated>Flee when this many raiders have died:</M4_SettingRetreatAtPercentageDefeated>
-    
-    <M4_HarvestYieldThing>Harvested product</M4_HarvestYieldThing>
-    <M4_HarvestYieldThingDetailInit>What this plant yields when harvested by a colonist. Information about {0} is as follows...</M4_HarvestYieldThingDetailInit>
-
-    <M4_TutorialStyleRolling>Disable pacifists during rolling</M4_TutorialStyleRolling>
-    <M4_TutorialStyleRolling_Desc>If this is enabled, non-violents will be removed from the available colonist pool during the starting screen. That means you'll never roll Emmie the Sex Slave, or Roughchild the Reporter</M4_TutorialStyleRolling_Desc>
-
-    <M4_NotifyDeadAnimals>Tell me about every dead colony animal!</M4_NotifyDeadAnimals>
-    <M4_NotifyDeadAnimals_Desc>When disabled, this removes the Death notification message for colony animals. This includes bonded animals.</M4_NotifyDeadAnimals_Desc>
-
-    <M4_LessLitterLouting>Human filth rate</M4_LessLitterLouting>
-    <M4_LessLitterLouting_Desc>How much filth and trash a human produces per 1000 cells. Default value is 5.</M4_LessLitterLouting_Desc>
-
-    <M4_GuardingPredatorsDontHuntTameDesignatedPawns>Animals marked for taming aren't tasty to your guarding predators</M4_GuardingPredatorsDontHuntTameDesignatedPawns>
-    <M4_GuardingPredatorsDontHuntTameDesignatedPawns_Desc>When enabled, any tame predator that is guard-trained will defer hunting any wild animals that are designated to be tamed.</M4_GuardingPredatorsDontHuntTameDesignatedPawns_Desc>
-    <M4_AnimalInteractionHourLimit>Stop interacting with animals past</M4_AnimalInteractionHourLimit>
-    <M4_AnimalInteractionHourLimit_Desc>Colonists that are assigned to animal handling will stop trying to interact with animals past this hour of the day, so that animals are less likely to fall asleep on them during taming/training which wastes food. Set to 24 to effectively disable (useful when you're playing with Nocturnal Animals).</M4_AnimalInteractionHourLimit_Desc>
-    <M4_CantInteractAnimalWillFallAsleepSoon>animal will fall asleep soon</M4_CantInteractAnimalWillFallAsleepSoon>
-
-    <M4_TimetableAssignmentMatters>Timetable assignment matters more</M4_TimetableAssignmentMatters>
-    <M4_TimetableAssignmentMatters_Desc>Colonists' timetable assignments will affect their global work speed stats.</M4_TimetableAssignmentMatters_Desc>
-
-    <M4_BetterHostileReadouts>Better hostile readouts</M4_BetterHostileReadouts>
-    <M4_BetterHostileReadouts_Desc>Chased refugee letters will show an overall head count for the pursuing group and non-human threats will have labels underneath them to make it easier to find them - no more ninja mechanoids!</M4_BetterHostileReadouts_Desc>
-
-    <M4_DisplayRangedDPS>Display ranged DPS</M4_DisplayRangedDPS>
-    <M4_DisplayRangedDPS_Desc>Ranged weapons and pawns will show their ranged DPS at close, short, medium and long distances. Advisable to disable if running Combat Extended.</M4_DisplayRangedDPS_Desc>
-
-    <M4_ThingFilterInfoCards>Add info button to filters</M4_ThingFilterInfoCards>
-    <M4_ThingFilterInfoCards_Desc>When viewing stockpile filters or configuring recipe ingredients, there will be a clickable i to bring up that item's info card.</M4_ThingFilterInfoCards_Desc>
-
-    <M4_NPDNeedsSpace>Paste dispenser needs space</M4_NPDNeedsSpace>
-    <M4_NPDNeedsSpace_Desc>One of your nutrient paste dispensers has its interaction cell blocked by an obstruction that will prevent colonists from using it.\n\nA nutrient paste dispenser needs an unblocked interaction cell to be usable.</M4_NPDNeedsSpace_Desc>
-
-    <M4_HaveNotDraggedColonist>Currently viewed colonist is not selected for landing. Are you sure you wish to embark without {0}?</M4_HaveNotDraggedColonist>
-
-    <M4_LoverWarning>{0} is not assigned to a bed which has two sleeping slots - cannot assign them to sleep with their partner</M4_LoverWarning>
+  <!-- Stats -->
+  <M4_DamagePerBurst>Damage per burst</M4_DamagePerBurst>
+  <M4_MinorBreakRisk>Minor Break Risk</M4_MinorBreakRisk>
+  <M4_MajorBreakRisk>Major Break Risk</M4_MajorBreakRisk>
+  <M4_ExtremeBreakRisk>Extreme Break Risk</M4_ExtremeBreakRisk>
+  <M4_ImAModder>I am a modder</M4_ImAModder>
+  <M4_ImAModderTT>Removes the 6 second cooldown on workshop submissions, unlocks special options.</M4_ImAModderTT>
+  <M4_DevInfo>Dev mode spawn tweaks [Unsaved. Setting wiped on restart.]</M4_DevInfo>
+  <M4_ChooseStuff>Choose item stuff</M4_ChooseStuff>
+  <M4_StuffName>Stuff defName (blank = default stuff)</M4_StuffName>
+  <M4_ForceQuality>Force item quality</M4_ForceQuality>
+  <M4_ItemQuality>Item quality</M4_ItemQuality>
+  <M4_Reset>Reset</M4_Reset>
+  <M4_CurrentModVersion>Installed mod-version: {0}</M4_CurrentModVersion>
+  <M4_WeaponSingleUse>Single-use</M4_WeaponSingleUse>
+  <M4_BurstShotDelay>Burst length</M4_BurstShotDelay>
+  <M4_TotalTime>Total time</M4_TotalTime>
+  <M4_ProjectileTravelTime>Travel time</M4_ProjectileTravelTime>
+  <M4_ProjectileExplosionDelay>Explosion delay</M4_ProjectileExplosionDelay>
+  <!-- StatParts -->
+  <M4_StatPart_TimeTable_ExplanationString>Timetabled for {0}</M4_StatPart_TimeTable_ExplanationString>
+  <!-- Settings -->
+  <M4_GreySettingsIgnored>Greyed out settings are ignored</M4_GreySettingsIgnored>
+  <M4_SettingBigAnimalMigrations>Bring back big herd migrations</M4_SettingBigAnimalMigrations>
+  <M4_SettingBigAnimalMigrations_Desc>With this setting enabled, expect herd migrations to contain between 30 and 50 animals, regardless of bodysize.</M4_SettingBigAnimalMigrations_Desc>
+  <M4_SettingModifyAutoUndrafter>Modify the Auto Undrafter</M4_SettingModifyAutoUndrafter>
+  <M4_SettingModifyAutoUndrafter_Desc>Various options for lengthening the time it takes for a colonist to undraft themselves.</M4_SettingModifyAutoUndrafter_Desc>
+  <M4_SettingWithGunsBlazing>Stay drafted when there's gunfire on the map.</M4_SettingWithGunsBlazing>
+  <M4_SettingGunsBlazing_Desc>Pawns stay drafted as long as someone is firing a gun on the map.</M4_SettingGunsBlazing_Desc>
+  <M4_SettingExtendUndraftTimeBy>Extend the time to undraft by:</M4_SettingExtendUndraftTimeBy>
+  <M4_SettingExtendUndraftTimeBy_Desc>The vanilla value is 5000 ticks, a little under a RimWorld hour. This setting *adds* to the 5000 ticks. Note that colonists actively engaged in combat will not undraft themselves (under normal circumstances).</M4_SettingExtendUndraftTimeBy_Desc>
+  <M4_SettingLowMoodUndraft>... but undraft when at:</M4_SettingLowMoodUndraft>
+  <M4_SettingLowMoodUndraft_Desc>Allow the regular AutoUndrafter to kick in when colonists are at low mood.</M4_SettingLowMoodUndraft_Desc>
+  <M4_SettingEnableLargePacks>Allow large manhunter packs?</M4_SettingEnableLargePacks>
+  <M4_SettingLargePack_Desc>By default, RimWorld stops sending manhunter packs at high raid points. This changes that.</M4_SettingLargePack_Desc>
+  <M4_SettingVariableRaidRetreat>Change the threshold at which raids flee</M4_SettingVariableRaidRetreat>
+  <M4_SettingVariableRaid_Desc>By default, raiders give up at 50% losses. This allows you to change it. Does not apply to mechanoids and other factions which don't flee.</M4_SettingVariableRaid_Desc>
+  <M4_SettingRandomRaidRetreat>Flee at random value?</M4_SettingRandomRaidRetreat>
+  <M4_SettingRandomRaidRetreat_Desc>Raiders will flee somewhere between {0} and {1} losses.</M4_SettingRandomRaidRetreat_Desc>
+  <M4_SettingRetreatAtPercentageDefeated>Flee when this many raiders have died:</M4_SettingRetreatAtPercentageDefeated>
+  <M4_HarvestYieldThing>Harvested product</M4_HarvestYieldThing>
+  <M4_HarvestYieldThingDetailInit>What this plant yields when harvested by a colonist. Information about {0} is as follows...</M4_HarvestYieldThingDetailInit>
+  <M4_TutorialStyleRolling>Disable pacifists during rolling</M4_TutorialStyleRolling>
+  <M4_TutorialStyleRolling_Desc>If this is enabled, non-violents will be removed from the available colonist pool during the starting screen. That means you'll never roll Emmie the Sex Slave, or Roughchild the Reporter</M4_TutorialStyleRolling_Desc>
+  <M4_NotifyDeadAnimals>Tell me about every dead colony animal!</M4_NotifyDeadAnimals>
+  <M4_NotifyDeadAnimals_Desc>When disabled, this removes the Death notification message for colony animals. This includes bonded animals.</M4_NotifyDeadAnimals_Desc>
+  <M4_LessLitterLouting>Human filth rate</M4_LessLitterLouting>
+  <M4_LessLitterLouting_Desc>How much filth and trash a human produces per 1000 cells. Default value is 5.</M4_LessLitterLouting_Desc>
+  <M4_GuardingPredatorsDontHuntTameDesignatedPawns>Animals marked for taming aren't tasty to your guarding predators</M4_GuardingPredatorsDontHuntTameDesignatedPawns>
+  <M4_GuardingPredatorsDontHuntTameDesignatedPawns_Desc>When enabled, any tame predator that is guard-trained will defer hunting any wild animals that are designated to be tamed.</M4_GuardingPredatorsDontHuntTameDesignatedPawns_Desc>
+  <M4_AnimalInteractionHourLimit>Stop interacting with animals past</M4_AnimalInteractionHourLimit>
+  <M4_AnimalInteractionHourLimit_Desc>Colonists that are assigned to animal handling will stop trying to interact with animals past this hour of the day, so that animals are less likely to fall asleep on them during taming/training which wastes food. Set to 24 to effectively disable (useful when you're playing with Nocturnal Animals).</M4_AnimalInteractionHourLimit_Desc>
+  <M4_CantInteractAnimalWillFallAsleepSoon>animal will fall asleep soon</M4_CantInteractAnimalWillFallAsleepSoon>
+  <M4_TimetableAssignmentMatters>Timetable assignment matters more</M4_TimetableAssignmentMatters>
+  <M4_TimetableAssignmentMatters_Desc>Colonists' timetable assignments will affect their global work speed stats.</M4_TimetableAssignmentMatters_Desc>
+  <M4_BetterHostileReadouts>Better hostile readouts</M4_BetterHostileReadouts>
+  <M4_BetterHostileReadouts_Desc>Chased refugee letters will show an overall head count for the pursuing group and non-human threats will have labels underneath them to make it easier to find them - no more ninja mechanoids!</M4_BetterHostileReadouts_Desc>
+  <M4_DisplayRangedDPS>Display ranged DPS</M4_DisplayRangedDPS>
+  <M4_DisplayRangedDPS_Desc>Ranged weapons and pawns will show their ranged DPS at close, short, medium and long distances. Advisable to disable if running Combat Extended.</M4_DisplayRangedDPS_Desc>
+  <M4_ThingFilterInfoCards>Add info button to filters</M4_ThingFilterInfoCards>
+  <M4_ThingFilterInfoCards_Desc>When viewing stockpile filters or configuring recipe ingredients, there will be a clickable i to bring up that item's info card.</M4_ThingFilterInfoCards_Desc>
+  <M4_NPDNeedsSpace>Paste dispenser needs space</M4_NPDNeedsSpace>
+  <M4_NPDNeedsSpace_Desc>One of your nutrient paste dispensers has its interaction cell blocked by an obstruction that will prevent colonists from using it.\n\nA nutrient paste dispenser needs an unblocked interaction cell to be usable.</M4_NPDNeedsSpace_Desc>
+  <M4_HaveNotDraggedColonist>Currently viewed colonist is not selected for landing. Are you sure you wish to embark without {0}?</M4_HaveNotDraggedColonist>
+  <M4_LoverWarning>{0} is not assigned to a bed which has two sleeping slots - cannot assign them to sleep with their partner</M4_LoverWarning>
 </LanguageData>

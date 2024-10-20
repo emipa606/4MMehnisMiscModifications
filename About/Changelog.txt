@@ -1,0 +1,6 @@
+# Changelog for 4MMehnisMiscModifications
+
+1.5.1 - Updated to 1.5
+Fixed the missing translation-strings
+Used DeepL to update translations for ChineseSimplified, French, German, Japanese
+

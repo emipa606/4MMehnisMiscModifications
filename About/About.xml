@@ -1,51 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>4M Mehni's Misc Modifications [1.2+]</name>
-	<author>Mehni, XeoNovaDan, simplyWiri, Miyuri (ZXfkSIE), Kaedys</author>
-	<supportedVersions>
-		<li>1.2</li>
-		<li>1.3</li>
-		<li>1.4</li>
-	</supportedVersions>
-  <packageId>Mehni.Misc.Modifications</packageId>
-	<url>https://github.com/ZXfkSIE/4M-Mehni-s-Misc-Modifications</url>
-  <modDependenciesByVersion>
-    <v1.2>
-      <li>
-        <packageId>brrainz.harmony</packageId>
-        <displayName>Harmony</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-        <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/</downloadUrl>
-      </li>
-    </v1.2>
-    <v1.3>
-      <li>
-        <packageId>brrainz.harmony</packageId>
-        <displayName>Harmony</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-        <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/</downloadUrl>
-      </li>
-    </v1.3>
-    <v1.4>
-      <li>
-        <packageId>brrainz.harmony</packageId>
-        <displayName>Harmony</displayName>
-        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-        <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/</downloadUrl>
-      </li>
-    </v1.4>
-  </modDependenciesByVersion>
-	<description>Adds various settings to customise your RimWorld experience.
-Check the description page on Steam Workshop for more details.
-\n\nversion 1.4.1.0
-1. DPS now will not display for non-projectile ranged weapons.
-2. Minor translation adjustments.
-\n\nversion 1.4.0.0
-1. Upgraded for RimWorld 1.4.
-2. Remove "better raider visibility" function since there is a better mod, "Atomic Patches - Hostile Labels".
-  </description>
+  <name>4M Mehni's Misc Modifications (Continued)</name>
+  <packageId>Mlie.4MMehnisMiscModifications</packageId>
+  <author>Mehni, XeoNovaDan, simplyWiri, Miyuri (ZXfkSIE), Kaedys</author>
+  <url>https://github.com/emipa606/4MMehnisMiscModifications</url>
+  <supportedVersions>
+    <li>1.2</li>
+    <li>1.3</li>
+    <li>1.4</li>
+    <li>1.5</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
   <loadAfter>
     <li>brrainz.harmony</li>
-    <li>Ludeon.RimWorld</li>
   </loadAfter>
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+Update of Mehnis mod https://steamcommunity.com/sharedfiles/filedetails/?id=2228765246
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
+
+[table]
+    [tr][td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td] [td][url=https://github.com/emipa606/4MMehnisMiscModifications][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/h5VwTNL.png[/img][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
+Adds various settings to customise your RimWorld experience.
+
+[h1]FEATURES[/h1]
+- Bugfixes for vanilla issues
+The game gives up on sending you manhunter packs once you reach a certain size. No more!
+
+- Extend the time for pawns to undraft themselves
+Stay where I put you!
+Ever had colonists auto undraft themselves while positioning them? Not anymore.
+
+- Change the threshold at which pawns retreat
+Raiders flee at 50% by default. That's boring. Let's randomise the flee threshold.
+Want a bigger challenge? Turn off fleeing entirely. Want a laid back game? Set it lower!
+Want unpredictability? There's a slider for however much randomness you can suffer.
+PS: doesn't work with those kamikaze groups which will fight until last person standing.
+
+- Get an alert when the Nutrient Paste Dispenser can't be used
+Pawns won't eat Nutrient Paste for some reason? Odds are there's a chunk blocking access to the interaction spot. 4M gives you a warning if this is the case.
+
+[b]Information improvements[/b]
+- Show what pawns are in a relationship when assigning beds
+- Show more info on plant yield (Thanks XeoNovaDan!)
+- Show DPS info for all (modded) weapons (Thanks XeoNovanDan!)
+- Disable messages for dying animals - who cares about Chicken #357 dying?
+- Confirmation dialog before starting if currently viewed colonist isn't selected for embark
+- [strike]Better raider visibility. No more ninja mechanoids! All hostiles will have their label draw in red, whether they're a raider, mechanoid or hostile animal.[/strike] (Removed in 1.4, please use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2904510148]Atomic Patches - Hostile Labels[/url] instead)
+- Chased refugees will give a full headcount of their raid.
+- Add item information buttons at item filter.
+
+[b]Various (AI) tweaks and settings[/b]
+- Never roll pacifists again.
+- [strike]Set a custom filth rate for humans.[/strike] (Removed in 1.3)
+- Don't interact with animals just before their naptime.
+- Animals marked for taming are less tasty to your guard-trained predators. ("Bad bear! I said tame the turtle, not eat it!")
+- Increase the size of Herd Migrations. Bring on the herd!
+
+[b]Mods for modders[/b]
+- Remove the 6 second cooldown on workshop submissions
+- Devmode spawn tweaks. Pick the stuff and quality for the item you wish to spawn.
+- [strike]Remove the 999 messages limit. Because sometimes you want to get spammed[/strike]. (Removed in 1.3)
+
+Most things in the mod are optional which can be configured or turned off.
+
+[h1]CREDITS[/h1]
+Programmed by Mehni, XeoNovaDan, simplyWiri, Miyuri and Kaedys.
+Chinese translation by HawnHan and Miyuri.
+Japanese translation by Miyuri.
+Preview image by Dianne. [url=https://steamcommunity.com/id/diannetea/myworkshopfiles/?appid=294100]Check out her stuff here![/url]
+Many thanks to all kind mod developers at the official [url=https://discord.com/invite/K4wQe57]Discord server[/url]!
+
+Github page: https://github.com/ZXfkSIE/4M-Mehni-s-Misc-Modifications
+
+[img]https://i.imgur.com/PwoNOj4.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
+[/list] 
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/][img]https://img.shields.io/github/v/release/emipa606/4MMehnisMiscModifications?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags:  tweaks,  customization</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.1</modVersion>
 </ModMetaData>
