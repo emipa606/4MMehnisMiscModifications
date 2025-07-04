@@ -8,24 +8,24 @@ namespace Mehni.Misc.Modifications;
 
 public static class RangedWeaponDPSUtility
 {
-    public static float GetDPS(Thing weapon, float dist, Pawn pawn = null)
+    public static float GetDps(Thing weapon, float dist, Pawn pawn = null)
     {
         var verb = weapon.def.Verbs[0];
         var projectile = verb.defaultProjectile.projectile;
         var singleUse = typeof(Verb_ShootOneUse).IsAssignableFrom(verb.verbClass);
 
-        var damage = GetDamage(projectile, weapon);
-        var cooldown = GetCooldown(weapon, singleUse);
-        var warmup = GetWarmup(verb, pawn);
-        var accuracy = GetAccuracy(weapon, verb, projectile, dist, pawn);
-        var burstCount = GetBurstCount(verb);
-        var burstShotDelay = GetBurstShotDelay(verb);
+        var damage = getDamage(projectile, weapon);
+        var cooldown = getCooldown(weapon, singleUse);
+        var warmup = getWarmup(verb, pawn);
+        var accuracy = getAccuracy(weapon, verb, projectile, dist, pawn);
+        var burstCount = getBurstCount(verb);
+        var burstShotDelay = getBurstShotDelay(verb);
 
-        return GetDPS(damage, cooldown, warmup, accuracy, burstCount, burstShotDelay);
+        return getDps(damage, cooldown, warmup, accuracy, burstCount, burstShotDelay);
     }
 
     // Signature retains reference to projectile travel and explosion delay for backwards compatibility.
-    public static float GetDPS(float damage, float cooldown, float warmup, float accuracy, int burstCount,
+    private static float getDps(float damage, float cooldown, float warmup, float accuracy, int burstCount,
         float burstShotDelay)
     {
         return damage * burstCount * accuracy / (cooldown + warmup + ((burstCount - 1) * burstShotDelay));
@@ -37,14 +37,14 @@ public static class RangedWeaponDPSUtility
         var projectile = verb.defaultProjectile.projectile;
         var singleUse = typeof(Verb_ShootOneUse).IsAssignableFrom(verb.verbClass);
 
-        var damage = GetDamage(projectile, weapon);
-        var cooldown = GetCooldown(weapon, singleUse);
-        var warmup = GetWarmup(verb, pawn);
-        var accuracy = GetAccuracy(weapon, verb, projectile, dist, pawn);
-        var burstCount = GetBurstCount(verb);
-        var burstShotDelay = GetBurstShotDelay(verb);
-        var projectileTravelTime = GetProjectileTravelTime(projectile, dist);
-        var explosionDelay = GetExplosionDelay(projectile);
+        var damage = getDamage(projectile, weapon);
+        var cooldown = getCooldown(weapon, singleUse);
+        var warmup = getWarmup(verb, pawn);
+        var accuracy = getAccuracy(weapon, verb, projectile, dist, pawn);
+        var burstCount = getBurstCount(verb);
+        var burstShotDelay = getBurstShotDelay(verb);
+        var projectileTravelTime = getProjectileTravelTime(projectile, dist);
+        var explosionDelay = getExplosionDelay(projectile);
         var bCMinOne = burstCount - 1;
 
         var expBuilder = new StringBuilder();
@@ -92,17 +92,17 @@ public static class RangedWeaponDPSUtility
         return expBuilder.ToString();
     }
 
-    private static float GetDamage(ProjectileProperties projectile, Thing weapon)
+    private static float getDamage(ProjectileProperties projectile, Thing weapon)
     {
         return projectile.GetDamageAmount(weapon);
     }
 
-    private static float GetCooldown(Thing weapon, bool singleUse)
+    private static float getCooldown(Thing weapon, bool singleUse)
     {
         return singleUse ? 0f : weapon.GetStatValue(StatDefOf.RangedWeapon_Cooldown).SecondsToTicks().TicksToSeconds();
     }
 
-    private static float GetWarmup(VerbProperties verb, Pawn pawn = null)
+    private static float getWarmup(VerbProperties verb, Pawn pawn = null)
     {
         var warmup = verb.warmupTime;
         if (pawn != null)
@@ -113,10 +113,10 @@ public static class RangedWeaponDPSUtility
         return warmup.SecondsToTicks().TicksToSeconds();
     }
 
-    private static float GetAccuracy(Thing weapon, VerbProperties verb, ProjectileProperties projectile, float dist,
+    private static float getAccuracy(Thing weapon, VerbProperties verb, ProjectileProperties projectile, float dist,
         Pawn pawn = null)
     {
-        var forcedMissRadius = CalculateAdjustedForcedMissDist(verb.ForcedMissRadius, dist);
+        var forcedMissRadius = calculateAdjustedForcedMissDist(verb.ForcedMissRadius, dist);
         var baseAimOn = verb.GetHitChanceFactor(weapon, dist);
         if (pawn != null)
         {
@@ -141,43 +141,38 @@ public static class RangedWeaponDPSUtility
         return Mathf.Clamp01(accuracy);
     }
 
-    private static float CalculateAdjustedForcedMissDist(float forcedMiss, float dist)
+    private static float calculateAdjustedForcedMissDist(float forcedMiss, float dist)
     {
-        if (dist < 9f)
+        switch (dist)
         {
-            return 0f;
+            case < 9f:
+                return 0f;
+            case < 25f:
+                return forcedMiss * 0.5f;
+            case < 49f:
+                return forcedMiss * 0.8f;
+            default:
+                return forcedMiss;
         }
-
-        if (dist < 25f)
-        {
-            return forcedMiss * 0.5f;
-        }
-
-        if (dist < 49f)
-        {
-            return forcedMiss * 0.8f;
-        }
-
-        return forcedMiss;
     }
 
-    private static int GetBurstCount(VerbProperties verb)
+    private static int getBurstCount(VerbProperties verb)
     {
         return verb.burstShotCount;
     }
 
-    private static float GetBurstShotDelay(VerbProperties verb)
+    private static float getBurstShotDelay(VerbProperties verb)
     {
         return verb.ticksBetweenBurstShots.TicksToSeconds();
     }
 
     // 100 from Projectile.StartingTicksToImpact
-    private static float GetProjectileTravelTime(ProjectileProperties projectile, float dist)
+    private static float getProjectileTravelTime(ProjectileProperties projectile, float dist)
     {
         return Mathf.RoundToInt(Math.Max(dist / (projectile.speed / 100), 1)).TicksToSeconds();
     }
 
-    private static float GetExplosionDelay(ProjectileProperties projectile)
+    private static float getExplosionDelay(ProjectileProperties projectile)
     {
         return projectile.explosionDelay.TicksToSeconds();
     }

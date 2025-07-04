@@ -68,7 +68,7 @@ internal static class SettingsHelper
     }
 
 
-    public static Rect GetRect(this Listing_Standard listing_Standard, float? height = null)
+    private static Rect GetRect(this Listing_Standard listing_Standard, float? height = null)
     {
         return listing_Standard.GetRect(height ?? Text.LineHeight);
     }
@@ -137,22 +137,6 @@ internal static class SettingsHelper
         settingsValue = Widgets.TextField(rightHalf, buffer);
     }
 
-    public static void AddLabeledNumericalTextField<T>(this Listing_Standard listing_Standard, string label,
-        ref T settingsValue, float leftPartPct = 0.5f, float minValue = 1f, float maxValue = 100000f) where T : struct
-    {
-        //listing_Standard.Gap(Gap);
-        listing_Standard.LineRectSpilter(out var leftHalf, out var rightHalf, leftPartPct);
-
-        // TODO: tooltips
-        //Widgets.DrawHighlightIfMouseover(lineRect);
-        //TooltipHandler.TipRegion(lineRect, "TODO: TIP GOES HERE");
-
-        Widgets.Label(leftHalf, label);
-
-        var buffer = settingsValue.ToString();
-        Widgets.TextFieldNumeric(rightHalf, ref settingsValue, ref buffer, minValue, maxValue);
-    }
-
     public static Rect LineRectSpilter(this Listing_Standard listing_Standard, out Rect leftHalf,
         float leftPartPct = 0.5f, float? height = null)
     {
@@ -168,16 +152,6 @@ internal static class SettingsHelper
         rightHalf = lineRect.RightPart(1f - leftPartPct).Rounded();
     }
 
-    //// (label, value) => (key, value)
-    //private static List<LabeledRadioValue<T>> GenerateLabeledRadioValues<T>(Dictionary<string, T> dict)
-    //{
-    //    List<LabeledRadioValue<T>> list = new List<LabeledRadioValue<T>>();
-    //    foreach (KeyValuePair<string, T> entry in dict)
-    //    {
-    //        list.Add(new LabeledRadioValue<T>(entry.Key, entry.Value));
-    //    }
-    //    return list;
-    //}
 
     public class LabeledRadioValue<T>(string label, T val)
     {

@@ -1,4 +1,4 @@
-# [4M Mehni's Misc Modifications (Continued)]()
+# [4M Mehni's Misc Modifications (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3352204451)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -60,8 +60,6 @@ Japanese translation by Miyuri.
 Preview image by Dianne. [Check out her stuff here!](https://steamcommunity.com/id/diannetea/myworkshopfiles/?appid=294100)
 Many thanks to all kind mod developers at the official [Discord server](https://discord.com/invite/K4wQe57)!
 
-Github page: https://github.com/ZXfkSIE/4M-Mehni-s-Misc-Modifications
-
 ![Image](https://i.imgur.com/PwoNOj4.png)
 
 
@@ -76,4 +74,4 @@ Github page: https://github.com/ZXfkSIE/4M-Mehni-s-Misc-Modifications
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/4MMehnisMiscModifications?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/) | tags:  tweaks,  customization
+[![Image](https://img.shields.io/github/v/release/emipa606/4MMehnisMiscModifications?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3352204451) | tags:  tweaks,  customization

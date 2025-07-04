@@ -42,14 +42,14 @@ public class StatWorker_RangedWeaponDPSPawn : StatWorker
     }
 
     public override string GetStatDrawEntryLabel(StatDef stat, float value, ToStringNumberSense numberSense,
-        StatRequest optionalReq, bool finalized)
+        StatRequest optionalReq, bool finalized = true)
     {
         return value.ToStringByStyle(stat.toStringStyle, numberSense);
     }
 
     public override float GetValueUnfinalized(StatRequest req, bool applyPostProcess = true)
     {
-        return GetRangedDamagePerSecond(req);
+        return getRangedDamagePerSecond(req);
     }
 
     public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
@@ -59,7 +59,7 @@ public class StatWorker_RangedWeaponDPSPawn : StatWorker
         return RangedWeaponDPSUtility.GetExplanation(weapon, Dist, pawn);
     }
 
-    private float GetRangedDamagePerSecond(StatRequest req)
+    private float getRangedDamagePerSecond(StatRequest req)
     {
         var pawn = req.Thing as Pawn;
         Thing weapon = pawn?.equipment?.Primary;
@@ -69,6 +69,6 @@ public class StatWorker_RangedWeaponDPSPawn : StatWorker
             return 0f;
         }
 
-        return RangedWeaponDPSUtility.GetDPS(weapon, Dist, pawn);
+        return RangedWeaponDPSUtility.GetDps(weapon, Dist, pawn);
     }
 }

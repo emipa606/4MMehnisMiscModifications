@@ -67,7 +67,7 @@ public class MeMiMoSettings : ModSettings
     ];
 
     public static bool variableRaidRetreat;
-    public static FloatRange retreatDefeatRange = new FloatRange(0.5f, 0.5f);
+    public static FloatRange retreatDefeatRange = new(0.5f, 0.5f);
 
     public static bool guardingPredatorsDeferHuntingTameDesignatedAnimals = true;
     public static int animalInteractionHourLimit = 20;

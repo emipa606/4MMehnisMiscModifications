@@ -14,7 +14,7 @@ namespace Mehni.Misc.Modifications;
 [StaticConstructorOnStartup]
 internal static class HarmonyPatches
 {
-    internal static readonly IntRange AnimalsCount = new IntRange(30, 50);
+    internal static readonly IntRange AnimalsCount = new(30, 50);
 
     //[TweakValue("AAAAMehniMiscMods", 0f, 1f)]
     //private static readonly float resizeHeart = 0.50f;
@@ -375,27 +375,27 @@ internal static class HarmonyPatches
 
         List<CodeInstruction> Li_instInsert =
         [
-            new CodeInstruction(
+            new(
                 OpCodes.Call,
                 AccessTools.PropertyGetter(typeof(HarmonyPatches), nameof(NoNonviolent))
             ),
 
-            new CodeInstruction(
+            new(
                 OpCodes.Brfalse_S,
                 label_pawn_eq_null
             ),
             // request.MustBeCapableOfViolence = true;
 
-            new CodeInstruction(
+            new(
                 OpCodes.Ldloca_S,
                 0
             ), // &request
 
-            new CodeInstruction(
+            new(
                 OpCodes.Ldc_I4_1
             ),
 
-            new CodeInstruction(
+            new(
                 OpCodes.Call,
                 AccessTools.PropertySetter(typeof(PawnGenerationRequest),
                     nameof(PawnGenerationRequest.MustBeCapableOfViolence))
@@ -442,11 +442,13 @@ internal static class HarmonyPatches
             nameof(Widgets.Label),
             [typeof(Rect), typeof(string)]
         );
+
         var thingIcon = AccessTools.Method(
             typeof(Widgets),
             nameof(Widgets.ThingIcon),
-            [typeof(Rect), typeof(Thing), typeof(float), typeof(Rot4?), typeof(bool)]
+            [typeof(Rect), typeof(Thing), typeof(float), typeof(Rot4?), typeof(bool), typeof(float), typeof(bool)]
         );
+
         var ldc_r4_35f = new CodeInstruction(OpCodes.Ldc_R4, 35f);
 
         var Li_inst = instructions.ToList();

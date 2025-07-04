@@ -2,10 +2,16 @@
   "Continued": true,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
+  "PreviewVersion": "1.6",
   "SocialImageSet": true,
   "SearchTags": [
     " tweaks",
     " customization"
-  ]
+  ],
+  "LastXmlCleaning": "2025-07-04T23:43:40.7990451+02:00",
+  "Patches": true,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 68655.0,
+  "LinesOfXML": 5564.0
 }

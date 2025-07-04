@@ -36,19 +36,19 @@ public class StatWorker_RangedWeaponDPS : StatWorker
     }
 
     public override string GetStatDrawEntryLabel(StatDef stat, float value, ToStringNumberSense numberSense,
-        StatRequest optionalReq, bool finalized)
+        StatRequest optionalReq, bool finalized = true)
     {
         return value.ToStringByStyle(stat.toStringStyle, numberSense);
     }
 
     public override float GetValueUnfinalized(StatRequest req, bool applyPostProcess = true)
     {
-        return GetRangedDamagePerSecond(req);
+        return getRangedDamagePerSecond(req);
     }
 
     public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
     {
-        var weapon = GetThingFromReq(req);
+        var weapon = getThingFromReq(req);
 
         var explanation = RangedWeaponDPSUtility.GetExplanation(weapon, Dist);
 
@@ -60,21 +60,21 @@ public class StatWorker_RangedWeaponDPS : StatWorker
         return explanation;
     }
 
-    private float GetRangedDamagePerSecond(StatRequest req)
+    private float getRangedDamagePerSecond(StatRequest req)
     {
-        var weapon = GetThingFromReq(req);
+        var weapon = getThingFromReq(req);
 
-        var DPS = RangedWeaponDPSUtility.GetDPS(weapon, Dist);
+        var dps = RangedWeaponDPSUtility.GetDps(weapon, Dist);
 
         if (req.Thing == null)
         {
             weapon.Destroy();
         }
 
-        return DPS;
+        return dps;
     }
 
-    private Thing GetThingFromReq(StatRequest req)
+    private static Thing getThingFromReq(StatRequest req)
     {
         var def = req.Def as ThingDef;
         return req.Thing ??
