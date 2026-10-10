@@ -16,31 +16,17 @@ internal static class HarmonyPatches
 {
     internal static readonly IntRange AnimalsCount = new(30, 50);
 
-    //[TweakValue("AAAAMehniMiscMods", 0f, 1f)]
-    //private static readonly float resizeHeart = 0.50f;
-
-    //private static readonly float offsetPosition = 0.62f;
-
     private static bool returnvalue;
 
     private static readonly Texture2D BondIcon = ContentFinder<Texture2D>.Get("UI/Icons/Animal/Bond");
     private static readonly Texture2D BondBrokenIcon = ContentFinder<Texture2D>.Get("UI/Icons/Animal/BondBroken");
-
-    //[TweakValue("AAAMehniMiscMods", -50f, 50f)]
     private static readonly float widthOffset = -19f;
-
-    //[TweakValue("AAAMehniMiscMods", -50f, 50f)]
     private static readonly float xOffset = -21f;
-
-    //[TweakValue("AAAMehniMiscMods", -50f, 50f)]
     private static readonly float yOffset = -2.25f;
 
     static HarmonyPatches()
     {
         var harmony = new Harmony("Mehni.RimWorld.4M.Main");
-#if DEBUG
-        Harmony.DEBUG = true;
-#endif
         harmony.Patch(
             AccessTools.Method(
                 typeof(IncidentWorker_HerdMigration),
@@ -97,9 +83,6 @@ internal static class HarmonyPatches
             ),
             new HarmonyMethod(typeof(HarmonyPatches), nameof(NotifyPlayerOfKilledAnimal_Prefix)));
 
-        //harmony.Patch(AccessTools.Method(typeof(Building_Turret), "OnAttackedTarget"), null, null,
-        //    new HarmonyMethod(typeof(HarmonyPatches), nameof(OnAttackedTarget_Transpiler)));
-
         harmony.Patch(
             AccessTools.Method(
                 typeof(FoodUtility),
@@ -132,22 +115,12 @@ internal static class HarmonyPatches
             ),
             transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(TranspileDebugSpawn)));
 
-        //harmony.Patch(AccessTools.Method(typeof(RelationsUtility), nameof(RelationsUtility.IsDisfigured)), null,
-        //    new HarmonyMethod(typeof(HarmonyPatches), nameof(IsDisfigured_Postfix)));
-
         harmony.Patch(
             AccessTools.Method(
                 typeof(Page_ConfigureStartingPawns),
                 "DoNext"
             ),
             new HarmonyMethod(typeof(HarmonyPatches), nameof(ConfigureStartingPawnsDoNextPrefix)));
-
-        //harmony.Patch(AccessTools.Method(typeof(IncidentWorker_RefugeeChased), "TryExecuteWorker"),
-        //    transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(TryExecuteWorker_Transpiler)));
-
-        //harmony.Patch(
-        //    original: AccessTools.Method(typeof(PawnUIOverlay), "DrawPawnGUIOverlay"),
-        //    postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(DrawPawnGUIOverlay_Postfix)));
 
         harmony.Patch(
             AccessTools.Method(
@@ -306,7 +279,6 @@ internal static class HarmonyPatches
 
         if (!MentalBreakHelper(___pawn))
         {
-            // As of RW 1.4: private const int UndraftDelay = 10000;
             __result =
                 Find.TickManager.TicksGame - ___lastNonWaitingTick >= 10000 + MeMiMoSettings.extendUndraftTimeBy
                 && GunsFiringHelper();
@@ -353,7 +325,7 @@ internal static class HarmonyPatches
     public static IEnumerable<CodeInstruction>
         NewGeneratedStartingPawns_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
     {
-        List<CodeInstruction> Li_inst = [..instructions];
+        List<CodeInstruction> Li_inst = [.. instructions];
         var idx_insert = -1;
         var label_pawn_eq_null = il.DefineLabel();
         for (var i = 0; i < Li_inst.Count - 1; i++)
@@ -384,12 +356,11 @@ internal static class HarmonyPatches
                 OpCodes.Brfalse_S,
                 label_pawn_eq_null
             ),
-            // request.MustBeCapableOfViolence = true;
 
             new(
                 OpCodes.Ldloca_S,
                 0
-            ), // &request
+            ),
 
             new(
                 OpCodes.Ldc_I4_1
@@ -401,9 +372,6 @@ internal static class HarmonyPatches
                     nameof(PawnGenerationRequest.MustBeCapableOfViolence))
             )
         ];
-
-        // if(NoNonviolent)
-        // request.MustBeCapableOfViolence = true;
 
         Li_inst.InsertRange(idx_insert, Li_instInsert);
         return Li_inst;
@@ -572,8 +540,6 @@ internal static class HarmonyPatches
     private static IEnumerable<CodeInstruction>
         InsertDrawHeart(Label label, List<CodeInstruction> inst_loadParams)
     {
-        // if(ShowHeart(rectDivider2.NewCol(24f), pawn))
-        //     return;
         foreach (var inst in inst_loadParams)
         {
             yield return inst;
@@ -625,7 +591,7 @@ internal static class HarmonyPatches
             return false;
         }
 
-        TooltipHandler.TipRegion(rect, directPawnRelation.otherPawn.LabelCap);
+        TooltipHandler.TipRegion(rect, directPawnRelation?.otherPawn?.LabelCap);
 
         // if it's a broken heart - allow them to click on the broken heart to assign the missing partner to the bed
         if (iconFor == BondBrokenIcon)
@@ -638,7 +604,7 @@ internal static class HarmonyPatches
             if (pawn.ownership?.OwnedBed?.SleepingSlotsCount >= 2)
             {
                 pawn.ownership.OwnedBed.GetComp<CompAssignableToPawn>()
-                    .TryAssignPawn(directPawnRelation.otherPawn);
+                    .TryAssignPawn(directPawnRelation?.otherPawn);
                 Text.Anchor = TextAnchor.UpperLeft; // A warning will popup without this line
                 return true;
             }
@@ -679,35 +645,6 @@ internal static class HarmonyPatches
         JobFailReason.Is("M4_CantInteractAnimalWillFallAsleepSoon".Translate());
         __result = false;
     }
-
-    //#region HideDisfigurement
-    //public static void IsDisfigured_Postfix(ref bool __result, Pawn pawn)
-    //{
-    //    if (MeMiMoSettings.apparelHidesDisfigurement && Find.TickManager.TicksGame % 200 == 0 && __result)
-    //    {
-    //        List<Apparel> wornApparel = pawn.apparel.WornApparel;
-    //        List<Hediff> disfiguringHediffs = pawn.health.hediffSet.hediffs.Where(h => h.Part.def.beautyRelated).ToList();
-    //        List<bool?> eachHediffCovered = new List<bool?>();
-    //        // Stairway to heaven
-    //        foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
-    //        {
-    //            foreach (BodyPartGroupDef hediffGroup in hediff.Part.groups)
-    //                foreach (Apparel apparel in wornApparel)
-    //                {
-    //                    foreach (BodyPartGroupDef apparelGroup in apparel.def.apparel.bodyPartGroups)
-    //                        if (apparelGroup == hediffGroup)
-    //                        {
-    //                            eachHediffCovered.Add(true);
-    //                            goto NextHediff;
-    //                        }
-    //                    eachHediffCovered.Add(false);
-    //                }
-    //            NextHediff:;
-    //        }
-    //        __result = eachHediffCovered.First(b => false) == null;
-    //    }
-    //}
-    //#endregion
 
     private static void YesImAModderStopAskingMe(ref bool __result)
     {
@@ -778,45 +715,6 @@ internal static class HarmonyPatches
             _ => QualityCategory.Normal
         };
     }
-
-    // Thanks Mehni... :sadwinnie:
-    /*
-    public static IEnumerable<CodeInstruction> TryExecuteWorker_Transpiler(IEnumerable<CodeInstruction> instructions)
-    {
-        List<CodeInstruction> instructionList = instructions.ToList();
-
-        MethodInfo alteredHostileFactionPawnReadout = AccessTools.Method(typeof(HarmonyPatches), nameof(AlteredHostileFactionPawnReadout));
-
-        for (int i = 0; i < instructionList.Count; i++)
-        {
-            CodeInstruction instruction = instructionList[i];
-
-            if (instruction.LoadsField(AccessTools.Field(typeof(FactionDef), "pawnsPlural")))
-            {
-                yield return new CodeInstruction(OpCodes.Ldloc_S, 5);
-
-                instruction.opcode = OpCodes.Call;
-                instruction.operand = alteredHostileFactionPawnReadout;
-            }
-
-            yield return instruction;
-        }
-    }
-
-    private static string AlteredHostileFactionPawnReadout(FactionDef faction, IEnumerable<PawnKindDef> pawnKinds)
-    {
-        // Warning: nested ternaries ahead
-        int pawnCount = pawnKinds.Count();
-        return ((MeMiMoSettings.betterHostileReadouts) ? pawnCount.ToString() + " " + ((pawnCount > 1) ? faction.pawnsPlural : faction.pawnSingular) : faction.pawnsPlural);
-    }
-
-    public static void DrawPawnGUIOverlay_Postfix(Pawn ___pawn)
-    {
-        // First two checks are just to prevent duplicates
-        if (MeMiMoSettings.betterHostileReadouts && !___pawn.RaceProps.Humanlike && ___pawn.Faction != Faction.OfPlayer && ___pawn.HostileTo(Faction.OfPlayer))
-            GenMapUI.DrawPawnLabel(___pawn, GenMapUI.LabelDrawPosFor(___pawn, -0.6f), font: GameFont.Tiny);
-    }
-    */
 
     public static IEnumerable<CodeInstruction> DoThingDef_Transpiler(IEnumerable<CodeInstruction> instructions)
     {

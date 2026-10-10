@@ -2,5 +2,23 @@
   <Configurations>
     <BuildType Name="Release" />
   </Configurations>
-  <Project Path="Mehni's Misc Modifications/Mehni's Misc Modifications.csproj" />
+  <Folder Name="/.github/">
+    <File Path="../.github/copilot-instructions.md" />
+  </Folder>
+  <Folder Name="/XML/" />
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/" />
+  <Folder Name="/XML/Languages/English/" />
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/Keys.xml" />
+  </Folder>
+  <Folder Name="/XML/Defs/">
+    <File Path="../Defs/xml_is_gross.xml" />
+  </Folder>
+  <Folder Name="/XML/Patches/">
+    <File Path="../Patches/XML_is_icky.xml" />
+  </Folder>
+  <Project Path="Mehni's Misc Modifications/Mehnis Misc Modifications.csproj" />
 </Solution>

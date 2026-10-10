@@ -23,12 +23,9 @@ public class Alert_NPDBlocked : Alert
             {
                 IEnumerable<Building> npdBuildings =
                     map.listerBuildings.AllBuildingsColonistOfDef(ThingDefOf.NutrientPasteDispenser);
-                foreach (var building in npdBuildings)
+                foreach (var building in npdBuildings.Where(b => !b.InteractionCell.Standable(map)))
                 {
-                    if (!building.InteractionCell.Standable(map))
-                    {
-                        yield return building;
-                    }
+                    yield return building;
                 }
             }
         }

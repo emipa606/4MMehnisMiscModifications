@@ -6,5 +6,5 @@ internal class TimeAssignmentExtension : DefModExtension
 {
     public static readonly TimeAssignmentExtension defaultValues = new();
 
-    public float globalWorkSpeedFactor = 1f;
+    public readonly float globalWorkSpeedFactor = 1f;
 }

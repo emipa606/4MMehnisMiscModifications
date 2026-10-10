@@ -27,10 +27,6 @@ public class MeMiMoSettings : ModSettings
     // ThingFilterInfoCards
     public static bool thingFilterInfoCards = true;
 
-    //#region HideDisfigurement
-    //public static bool apparelHidesDisfigurement = true;
-    //#endregion
-
     //[TweakValue("AAAMehniMiscMods")]
     private static readonly float yPos = 43f;
 
@@ -61,7 +57,7 @@ public class MeMiMoSettings : ModSettings
     public static bool allowAutoUndraftAtLowMood = true;
     public static string dontExtendWhenMoodAt = "1";
 
-    public static readonly string[] mentalBreakRiskKeys =
+    private static readonly string[] mentalBreakRiskKeys =
     [
         "M4_MinorBreakRisk", "M4_MajorBreakRisk", "M4_ExtremeBreakRisk"
     ];
@@ -113,9 +109,6 @@ public class MeMiMoSettings : ModSettings
         options.CheckboxLabeled("M4_DisplayRangedDPS".Translate(), ref displayRangedDPS,
             "M4_DisplayRangedDPS_Desc".Translate());
         options.GapLine();
-
-        //options.CheckboxLabeled("M4_BetterHostileReadouts".Translate(), ref betterHostileReadouts, "M4_BetterHostileReadouts_Desc".Translate());
-        //options.GapLine();
 
         options.SliderLabeled(
             "M4_AnimalInteractionHourLimit".Translate(),
@@ -248,7 +241,7 @@ public class MeMiMoSettings : ModSettings
         moreOptions.End();
     }
 
-    public void Reset()
+    private static void Reset()
     {
         bigAnimalMigrations = false;
         modifyAutoUndrafter = false;
@@ -265,7 +258,6 @@ public class MeMiMoSettings : ModSettings
         animalInteractionHourLimit = 20;
         workAssignmentMatters = false;
         iAmAModder = false;
-        // betterHostileReadouts = true;
         displayRangedDPS = true;
         thingFilterInfoCards = true;
     }
@@ -288,10 +280,7 @@ public class MeMiMoSettings : ModSettings
         Scribe_Values.Look(ref animalInteractionHourLimit, "animalInteractionHourLimit", 20);
         Scribe_Values.Look(ref workAssignmentMatters, "workAssignmentMatters");
         Scribe_Values.Look(ref iAmAModder, "iAmAModder");
-        // Scribe_Values.Look(ref betterHostileReadouts, "betterHostileReadouts", true);
         Scribe_Values.Look(ref displayRangedDPS, "displayRangedDPS", true);
         Scribe_Values.Look(ref thingFilterInfoCards, "thingFilterInfoCards", true);
     }
-
-    // public static bool betterHostileReadouts = true;
 }
