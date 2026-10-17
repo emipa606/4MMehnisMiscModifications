@@ -5,12 +5,9 @@
   <Folder Name="/.github/">
     <File Path="../.github/copilot-instructions.md" />
   </Folder>
-  <Folder Name="/XML/" />
   <Folder Name="/XML/About/">
     <File Path="../About/about.xml" />
   </Folder>
-  <Folder Name="/XML/Languages/" />
-  <Folder Name="/XML/Languages/English/" />
   <Folder Name="/XML/Languages/English/Keyed/">
     <File Path="../Languages/English/Keyed/Keys.xml" />
   </Folder>

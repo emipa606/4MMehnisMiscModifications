@@ -1,5 +1,8 @@
 # Changelog for 4MMehnisMiscModifications
 
+1.7.0 - Mod updated for 1.7 and passed autotests
+
+
 1.6.1 - Code cleanup based on SonarQube report
 Used DeepL to update translations for German, ChineseSimplified, French, ChineseTraditional, Japanese
 
